@@ -68,14 +68,13 @@ public class PersistenceProviderNew<U> {
     private U generatedData(U cla, Field fil) throws IllegalAccessException, ClassNotFoundException, InstantiationException, InvocationTargetException {
 
           if (fil.getType().equals(int.class)) {
-              int a = Parce.nextInt(Integer.parseInt(fil.get(cla) + ""));
-              fil.setInt(cla, a);
+              fil.setInt(cla, Parce.nextInt(Integer.parseInt(fil.get(cla) + "")));
           } else if (fil.get(cla) instanceof String) {
-              String a = Parce.nextString((String) fil.get(cla));
-              fil.set(cla, a);
+              fil.set(cla, Parce.nextString((String) fil.get(cla)));
           } else if (fil.getType().equals(long.class)) {
               fil.setInt(cla, Parce.nextInt(Integer.parseInt(fil.get(cla) + "")));
           } else if (fil.getType() instanceof Class) {
+
               U mae = (U) fil.get(cla);
               U dep = (U) Class.forName((fil.get(cla)).getClass().getName()).newInstance();
               //Clona o objeto para receber os dados
