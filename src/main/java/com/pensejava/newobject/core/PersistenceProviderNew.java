@@ -81,7 +81,7 @@ public class PersistenceProviderNew<U> {
               //Clona o objeto para receber os dados
               BeanUtils.copyProperties(dep, mae);
               dep = newProviderDep(dep);
-              fil.set(mae, dep);
+              fil.set(cla, dep);
         }
 
         return cla;
