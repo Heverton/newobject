@@ -4,11 +4,29 @@ package com.pensejava.newobject.core;
  * Configura as informações basicas de dados
  */
 public class Config {
-    private int countString;
-    private int countInt;
-    private int countPreciDecimal;
+
+    private int countList = 1;
+    private int countListDependent = 1;
+    private int countString  = 10;
+    private int countNumber = 100;
 
     public Config() {
+    }
+
+    public int getCountList() {
+        return countList;
+    }
+
+    public void setCountList(int countList) {
+        this.countList = countList;
+    }
+
+    public int getCountListDependent() {
+        return countListDependent;
+    }
+
+    public void setCountListDependent(int countListDependent) {
+        this.countListDependent = countListDependent;
     }
 
     public int getCountString() {
@@ -19,19 +37,11 @@ public class Config {
         this.countString = countString;
     }
 
-    public int getCountInt() {
-        return countInt;
+    public int getCountNumber() {
+        return countNumber;
     }
 
-    public void setCountInt(int countInt) {
-        this.countInt = countInt;
-    }
-
-    public int getCountPreciDecimal() {
-        return countPreciDecimal;
-    }
-
-    public void setCountPreciDecimal(int countPreciDecimal) {
-        this.countPreciDecimal = countPreciDecimal;
+    public void setCountNumber(int countNumber) {
+        this.countNumber = countNumber;
     }
 }

@@ -5,21 +5,21 @@ import javax.persistence.GeneratedValue;
 import java.util.List;
 
 @Entity
-public class Pessoa {
+public class PessoaList {
     @GeneratedValue
     public int id;
     public String nome;
     public String sobrenome;
-    public Endereco enderecos;
+    public List<Endereco> enderecos;
     public String telefone;
     public String nomeMae;
     public String nomePai;
 
 
-    public Pessoa() {
+    public PessoaList() {
     }
 
-    public Pessoa(int id, String nome, String sobrenome, Endereco enderecos, String telefone, String nomeMae, String nomePai) {
+    public PessoaList(int id, String nome, String sobrenome, List<Endereco> enderecos, String telefone, String nomeMae, String nomePai) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -77,11 +77,11 @@ public class Pessoa {
         this.nomePai = nomePai;
     }
 
-    public Endereco getEnderecos() {
+    public List<Endereco> getEnderecos() {
         return enderecos;
     }
 
-    public void setEnderecos(Endereco enderecos) {
+    public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
 }
