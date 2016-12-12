@@ -78,9 +78,9 @@ Adicione os comandos no arquivo pom.xml, veja abaixo:
     
     <dependencies>
         <dependency>
-            <groupId>com.github.heverton</groupId>
+            <groupId>com.github.heverton.newobject</groupId>
             <artifactId>newobject</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </dependency>
     </dependencies>
 
