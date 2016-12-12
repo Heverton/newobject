@@ -1,13 +1,13 @@
 package com.pensejava.newobject.entity;
 
 public class Pessoa {
-    public int id;
-    public String nome;
-    public String sobrenome;
-    public Endereco enderecos;
-    public String telefone;
-    public String nomeMae;
-    public String nomePai;
+    private int id;
+    private String nome;
+    private String sobrenome;
+    private Endereco enderecos;
+    private String telefone;
+    private String nomeMae;
+    private String nomePai;
 
 
     public Pessoa() {

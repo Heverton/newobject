@@ -3,10 +3,7 @@ package com.pensejava.newobject.core;
 import com.pensejava.newobject.entity.Endereco;
 import org.apache.commons.beanutils.BeanUtils;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -45,9 +42,9 @@ public class PersistenceProviderNew<U> {
                 //Recebe o campo e trata os dados, resuta em objetos com dados novos
                 //Apartir do objeto mae
                 for (Field fil : cla.getClass().getDeclaredFields()) {
+                    fil.setAccessible(true);
                     cla = generatedData(cla, fil);
                 }
-
 
                 uList.add(cla);
             }
@@ -78,68 +75,68 @@ public class PersistenceProviderNew<U> {
 
     private U generatedData(U cla, Field fil) throws IllegalAccessException, ClassNotFoundException, InstantiationException, InvocationTargetException {
 
-            if (fil.getType().getName().equals("java.util.List") &&  fil.get(cla) != null){
-                ArrayList list = (ArrayList) fil.get(cla);
-                ArrayList listObj = new ArrayList();
-                for (Object o : list) {
-                    for (Object ob : new PersistenceProviderNew().newProvider(this.config.getCountListDependent(), o)) {
-                        listObj.add(ob);
-                    }
+        if (fil.getType().getName().equals("java.util.List") &&  fil.get(cla) != null){
+            ArrayList list = (ArrayList) fil.get(cla);
+            ArrayList listObj = new ArrayList();
+            for (Object o : list) {
+                for (Object ob : new PersistenceProviderNew().newProvider(this.config.getCountListDependent(), o)) {
+                    listObj.add(ob);
                 }
-
-                //Limpar lista
-                list.clear();
-
-                for (Object o :  listObj){
-                    list.add(o);
-                }
-
-                fil.set(cla, list);
-
-            } else if (fil.getType().equals(int.class)) {
-                if(Integer.parseInt(fil.get(cla) + "") == 0) {
-                    fil.setInt(cla, Parce.nextInt(this.config.getCountNumber()));
-                } else {
-                    fil.setInt(cla, Parce.nextInt(Integer.parseInt(fil.get(cla) + "")));
-                }
-            } else if (fil.getType().equals(long.class)) {
-                if(Long.parseLong(fil.get(cla) + "") == 0) {
-                    fil.setLong(cla, Parce.nextLong(this.config.getCountNumber()));
-                } else {
-                    fil.setLong(cla, Parce.nextLong(Long.parseLong(fil.get(cla) + "")));
-                }
-
-            } else if (fil.get(cla) instanceof String) {
-                if(((String) fil.get(cla)).length() == 0) {
-                    fil.set(cla, Parce.nextString(null));
-                } else {
-                    fil.set(cla, Parce.nextString((String) fil.get(cla)));
-                }
-            } else if (fil.getType() instanceof Class &&  fil.get(cla) != null) {
-                U mae = (U) fil.get(cla);
-                U dep = (U) Class.forName((fil.get(cla)).getClass().getName()).newInstance();
-                //Clona o objeto para receber os dados
-                BeanUtils.copyProperties(dep, mae);
-                dep = newProviderDep(dep);
-                fil.set(cla, dep);
-
-            } else if (fil.getType().getName().equals("java.util.List") &&  fil.get(cla) == null) {
-                //remove os dados necessario para a instacia do dado
-                String str = (fil.getGenericType().toString().replace("java.util.List<","")).replace(">","");
-                ArrayList list = new ArrayList();
-                list.add(Class.forName(str).newInstance());
-                fil.set(cla, list);
-                generatedData(cla, fil);
-
-
-            //Caso de null seta o valor default
-            } else if(fil.get(cla) == null) {
-                U dep = (U) Class.forName(fil.getType().getName()).newInstance();
-                fil.set(cla, dep);
-                generatedData(cla, fil);
             }
 
-            return cla;
+            //Limpar lista
+            list.clear();
+
+            for (Object o :  listObj){
+                list.add(o);
+            }
+
+            fil.set(cla, list);
+
+        } else if (fil.getType().equals(int.class)) {
+            if(Integer.parseInt(fil.get(cla) + "") == 0) {
+                fil.setInt(cla, Parce.nextInt(this.config.getCountNumber()));
+            } else {
+                fil.setInt(cla, Parce.nextInt(Integer.parseInt(fil.get(cla) + "")));
+            }
+        } else if (fil.getType().equals(long.class)) {
+            if(Long.parseLong(fil.get(cla) + "") == 0) {
+                fil.setLong(cla, Parce.nextLong(this.config.getCountNumber()));
+            } else {
+                fil.setLong(cla, Parce.nextLong(Long.parseLong(fil.get(cla) + "")));
+            }
+
+        } else if (fil.get(cla) instanceof String) {
+            if(((String) fil.get(cla)).length() == 0) {
+                fil.set(cla, Parce.nextString(null));
+            } else {
+                fil.set(cla, Parce.nextString((String) fil.get(cla)));
+            }
+        } else if (fil.getType() instanceof Class &&  fil.get(cla) != null) {
+            U mae = (U) fil.get(cla);
+            U dep = (U) Class.forName((fil.get(cla)).getClass().getName()).newInstance();
+            //Clona o objeto para receber os dados
+            BeanUtils.copyProperties(dep, mae);
+            dep = newProviderDep(dep);
+            fil.set(cla, dep);
+
+        } else if (fil.getType().getName().equals("java.util.List") &&  fil.get(cla) == null) {
+            //remove os dados necessario para a instacia do dado
+            String str = (fil.getGenericType().toString().replace("java.util.List<","")).replace(">","");
+            ArrayList list = new ArrayList();
+            list.add(Class.forName(str).newInstance());
+            fil.set(cla, list);
+            generatedData(cla, fil);
+
+
+        //Caso de null seta o valor default
+        } else if(fil.get(cla) == null) {
+            U dep = (U) Class.forName(fil.getType().getName()).newInstance();
+            fil.set(cla, dep);
+            generatedData(cla, fil);
+        }
+
+        return cla;
     }
 
     /*

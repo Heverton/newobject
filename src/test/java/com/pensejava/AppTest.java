@@ -20,13 +20,13 @@ public class AppTest {
                 new Pessoa(15,"Heverton", "Silva", new Endereco(15, "QMS 03"), "986325705", "Rosanilza", "Antonio"));
 
 //        for (Pessoa p : pessoas){
-//            System.out.print(p.getId()+" - ");
-//            System.out.print(p.getNome()+" - ");
-//            System.out.print(p.getNomeMae()+" - ");
-//            System.out.print(p.getEnderecos().getId()+" - ");
-//            System.out.print(p.getEnderecos().getNome()+" - ");
-//            System.out.print(p.getSobrenome()+" - ");
-//            System.out.print(p.getTelefone());
+//            System.out.println(p.getId()+" - ");
+//            System.out.println(p.getNome()+" - ");
+//            System.out.println(p.getNomeMae()+" - ");
+//            System.out.println(p.getEnderecos().getId()+" - ");
+//            System.out.println(p.getEnderecos().getNome()+" - ");
+//            System.out.println(p.getSobrenome()+" - ");
+//            System.out.println(p.getTelefone());
 //        }
 
         Assert.assertEquals("É uma lista de Pessoa? ", 15, pessoas.size());
