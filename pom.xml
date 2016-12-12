@@ -2,13 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.pensejava</groupId>
+    <groupId>com.github.heverton</groupId>
     <artifactId>newobject</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <name>newobject</name>
-    <url>http://pensejava.com</url>
+    <description>NewObject</description>
+    <url>http://com.github.heverton</url>
 
     <licenses>
       <license>
@@ -19,8 +20,18 @@
     </licenses>
 
     <scm>
-      <url>https://svn.apache.org/viewvc/maven</url>
+        <connection>scm:git:git@github.com:heverton/newobject.git</connection>
+        <developerConnection>scm:git:git@github.com:heverton/newobject.git</developerConnection>
+        <url>git@github.com:heverton/newobject.git</url>
     </scm>
+
+    <developers>
+        <developer>
+            <id>heverton</id>
+            <name>Heverton Cruz</name>
+            <email>heverton7@gmail.com</email>
+        </developer>
+    </developers>
 
     <organization>
       <name>Heverton Cruz</name>
