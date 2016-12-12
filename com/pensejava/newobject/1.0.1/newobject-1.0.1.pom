@@ -4,7 +4,7 @@
 
   <groupId>com.pensejava</groupId>
   <artifactId>newobject</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <name>newobject</name>
   <url>http://pensejava.com</url>
@@ -46,8 +46,6 @@
         <scope>test</scope>
       </dependency>
   </dependencies>
-
-
 
   <build>
     <plugins>
