@@ -78,7 +78,7 @@ Adicione os comandos no arquivo pom.xml, veja abaixo:
         <dependency>
             <groupId>com.pensejava</groupId>
             <artifactId>newobject</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 
