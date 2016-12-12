@@ -1,12 +1,6 @@
 package com.pensejava.newobject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import java.util.List;
-
-@Entity
 public class Pessoa {
-    @GeneratedValue
     public int id;
     public String nome;
     public String sobrenome;

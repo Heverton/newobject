@@ -1,14 +1,9 @@
 package com.pensejava.newobject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-
 /**
  * Created by heverton.cruz on 05/12/2016.
  */
-@Entity
 public class Endereco {
-    @GeneratedValue
     public int id;
     public String nome;
 
