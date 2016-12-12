@@ -1,6 +1,8 @@
 NewObject
 ==========
 
+[![](https://jitpack.io/v/Heverton/newobject.svg)](https://jitpack.io/#Heverton/newobject)
+
 É um projeto que viza otimizar a instancia de objetos. 
 
 + Relacionamento de objetos OneToMany -> Objeto com List ou Objeto com Objeto[];
@@ -78,7 +80,7 @@ Adicione os comandos no arquivo pom.xml, veja abaixo:
         <dependency>
             <groupId>com.pensejava</groupId>
             <artifactId>newobject</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 
