@@ -105,7 +105,13 @@ public class PersistenceProviderNew<U> {
             } else {
                 fil.setLong(cla, Parce.nextLong(Long.parseLong(fil.get(cla) + "")));
             }
-
+        } else if (fil.get(cla) instanceof Long || fil.getType().equals(Long.class)) {
+            Long numb = ((Long)fil.get(cla));
+            if(numb == null) {
+                fil.set(cla, Parce.nextLong(this.config.getCountNumber()));
+            } else {
+                fil.set(cla, Parce.nextLong(numb));
+            }
         } else if (fil.get(cla) instanceof String) {
             if(((String) fil.get(cla)).length() == 0) {
                 fil.set(cla, Parce.nextString(null));
@@ -127,7 +133,6 @@ public class PersistenceProviderNew<U> {
             list.add(Class.forName(str).newInstance());
             fil.set(cla, list);
             generatedData(cla, fil);
-
 
         //Caso de null seta o valor default
         } else if(fil.get(cla) == null) {

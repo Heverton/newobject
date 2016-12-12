@@ -1,7 +1,7 @@
 package com.pensejava.newobject.entity;
 
 public class Pessoa {
-    private int id;
+    private Long id;
     private String nome;
     private String sobrenome;
     private Endereco enderecos;
@@ -13,7 +13,7 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String sobrenome, Endereco enderecos, String telefone, String nomeMae, String nomePai) {
+    public Pessoa(Long id, String nome, String sobrenome, Endereco enderecos, String telefone, String nomeMae, String nomePai) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -23,11 +23,11 @@ public class Pessoa {
         this.nomePai = nomePai;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

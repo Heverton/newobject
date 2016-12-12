@@ -17,7 +17,7 @@ public class AppTest {
     @Test
     public void onetoone(){
         List<Pessoa> pessoas = (List<Pessoa>) new PersistenceProviderNew().newProvider(15,
-                new Pessoa(15,"Heverton", "Silva", new Endereco(15, "QMS 03"), "986325705", "Rosanilza", "Antonio"));
+                new Pessoa(15l,"Heverton", "Silva", new Endereco(15, "QMS 03"), "986325705", "Rosanilza", "Antonio"));
 
 //        for (Pessoa p : pessoas){
 //            System.out.println(p.getId()+" - ");
