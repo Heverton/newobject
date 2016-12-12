@@ -1,6 +1,8 @@
 NewObject
 ==========
 
+[![](https://jitpack.io/v/Heverton/newobject.svg)](https://jitpack.io/#Heverton/newobject)
+
 É um projeto que viza otimizar a instancia de objetos. 
 
 + Relacionamento de objetos OneToMany -> Objeto com List ou Objeto com Objeto[];
