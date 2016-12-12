@@ -78,9 +78,9 @@ Adicione os comandos no arquivo pom.xml, veja abaixo:
     
     <dependencies>
         <dependency>
-            <groupId>com.pensejava</groupId>
+            <groupId>com.github.heverton</groupId>
             <artifactId>newobject</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 
