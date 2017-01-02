@@ -1,4 +1,4 @@
-package com.pensejava;
+package com.pensejava.junit;
 
 import com.pensejava.newobject.core.PersistenceProviderNew;
 import com.pensejava.newobject.entity.Endereco;

@@ -39,8 +39,9 @@
 
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <java.version>1.7</java.version>
       <github.global.server>github</github.global.server>
+      <slf4j.version>1.7.22</slf4j.version>
+      <java.version>1.7</java.version>
     </properties>
 
     <distributionManagement>
@@ -58,6 +59,7 @@
           <artifactId>commons-beanutils</artifactId>
           <version>1.9.0</version>
         </dependency>
+        <!-- Teste JUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -69,6 +71,46 @@
           <artifactId>hamcrest-all</artifactId>
           <version>1.3</version>
           <scope>test</scope>
+        </dependency>
+        <!-- Teste Spock -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>1.0-groovy-2.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.athaydes</groupId>
+            <artifactId>spock-reports</artifactId>
+            <version>1.2.13</version>
+            <scope>test</scope>
+            <!-- this avoids affecting your version of Groovy/Spock -->
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- // if you don't already have slf4j-api and an implementation of it in the classpath, add this! -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.13</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.13</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
