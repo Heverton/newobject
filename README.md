@@ -8,6 +8,29 @@ NewObject
 + Relacionamento de objetos OneToMany -> Objeto com List ou Objeto com Objeto[];
 + Relacionamento de objetos OneToOne  ->  Objeto com Objeto;
 
+## Dependência 
+
+Adicione os comandos no arquivo pom.xml, veja abaixo:
+
+    <repositories>
+        <repository>
+            <id>newobject</id>
+            <url>https://raw.github.com/Heverton/newobject/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.github.heverton.newobject</groupId>
+            <artifactId>newobject</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+    </dependencies>
+
 ## OneToOne
 
 ![Exemplo de relacão.](one-to-one.png)
@@ -60,27 +83,3 @@ NewObject
             System.out.println(p.getSobrenome());
             System.out.println(p.getTelefone()+"\n");
         }
-
-## Dependência 
-
-Adicione os comandos no arquivo pom.xml, veja abaixo:
-
-    <repositories>
-        <repository>
-            <id>newobject</id>
-            <url>https://raw.github.com/Heverton/newobject/mvn-repo/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <dependencies>
-        <dependency>
-            <groupId>com.github.heverton.newobject</groupId>
-            <artifactId>newobject</artifactId>
-            <version>1.0.4</version>
-        </dependency>
-    </dependencies>
-
